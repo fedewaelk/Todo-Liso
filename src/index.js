@@ -1,3 +1,7 @@
-import "./styles.css";import { renderTasks } from './domHandler.js';
+import "./styles.css";
+import { renderTasks } from './domHandler.js';
 
-renderTasks();
+document.addEventListener('DOMContentLoaded', () => {
+  renderTasks();
+});
+

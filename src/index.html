@@ -10,14 +10,14 @@
     <div class="container">
         <aside class="sidebar">
             <button class="sidebar-button" id="addTaskButton">Add Task</button>
-            <button class="sidebar-button" id="addListButton">Add List</button>
-            <ul id="lists">
-                <p>Lists</p>
+            <button class="sidebar-button" id="addProjectButton">Add List</button>
+            <ul id="projects">
+                <p>Projects</p>
                 <li><button id="all-tasks">All Tasks</button></li>
                 <li><button id="today">Today</button></li>
             </ul>
-            <ul id="my-lists">
-                <p>My Lists</p>
+            <ul id="my-projects">
+                <p>My Projects</p>
             </ul>
         </aside>
         <main class="main-content">
@@ -25,6 +25,18 @@
             <div id="task-container"></div>
             <button class="main-button" id="add-task">Add Task</button>
         </main>
+
+        <div id="projectModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>New Project</h2>
+              <form id="projectForm">
+                <label for="projectName">Project Name:</label>
+                <input type="text" id="projectName" name="projectName" required><br>
+                <button type="submit">Add Project</button>
+              </form>
+            </div>
+          </div>
 
         <div id="taskModal" class="modal">
             <div class="modal-content">
