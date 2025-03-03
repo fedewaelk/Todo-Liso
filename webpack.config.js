@@ -4,31 +4,30 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true, // Limpia la carpeta 'dist' antes de cada compilación
+    clean: true,
   },
   mode: 'development',
+  devServer: {
+    static: path.resolve(__dirname, 'dist'), // Reemplazo de contentBase por static
+    hot: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
   module: {
     rules: [
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html', // Plantilla HTML personalizada
-    }),
-  ],
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
-    },
-    compress: true,
-    port: 8080,
-    open: true,
-    historyApiFallback: true, // Redirige todas las rutas al index.html
   },
 };
