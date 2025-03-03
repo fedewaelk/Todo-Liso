@@ -75,7 +75,7 @@ const openProjectModal = () => {
   
     const newProject = addProject(projectName);
 
-    const projectItem = document.createElement('li');
+    const projectItem = document.createElement('button');
     projectItem.textContent = newProject.name;
     projectItem.dataset.projectId = newProject.id;
 
